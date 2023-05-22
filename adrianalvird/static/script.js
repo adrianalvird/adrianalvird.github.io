@@ -162,7 +162,51 @@ document.addEventListener("DOMContentLoaded", function () {
       whoamiOutput.textContent = "/";
       outputElement.appendChild(whoamiOutput);
       return;
-    }   
+    }  
+    if (command === "hobby") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = "I wanna be a Cyber Security Experts and wanted to protect other and Organizations from Cyber Attacks ";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    }else if (command === "skills") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = "I Know Django & Flask Frameworks , also TCP/IP, Windows/Linux, CyberSecurity Fundamentals,Risk Assessment and Management, Security tools,  Social Engineering , Encryption and Cryptography, Incident Response, Ethical Hacking and Penetration Testing .";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    }else if (command === "language") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = " Bengali(Native) , English(Moderate), Hindi(Moderate) .";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    }else if (command === "education") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = "I Graduate from Memari College under University of Burdwan on B.Sc Computer Science Hons ..  ";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    } else if (command === "objective") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = "To kick-start my career in cybersecurity as a fresher, seeking an entry-level position that allows me to apply my knowledge and passion for cybersecurity. I am eager to learn and contribute to the organization's security efforts by leveraging my foundational understanding of cybersecurity principles, networking, and system administration. I aim to gain practical experience, develop my skills further, and contribute to creating a secure environment for the organization's digital assets.";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    }else if (command === "tools") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = "As a Bug Hunter I use many tools in Daily Basis , there are some tools I Like Burp Suite , Nmap , Nessus , Wireshark , Metasploit , Maltego , BeeF , OpenVAS, Crunch , JohnTheRipper , Medusa , Masscan , Amass, Nikto , NetCat, Splunk, QRader , Snort , also familiarize many github based tools . ";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    }else if (command === "certificate") {
+      const whoamiOutput = document.createElement("div");
+      whoamiOutput.classList.add("command-output");
+      whoamiOutput.textContent = "Practical Ethical Hacking - The Complete Course - TCM Security |  NDG Linux Essentials - CISCO | Advent of Cyber 2021 - TryHackMe | Cybersecurity Essentials - CISCO  |NSE -1 - Fortinet  and much more i don't even specified";
+      outputElement.appendChild(whoamiOutput);
+      return;
+    }  
+     
 
     if (command === "whoami") {
       const whoamiOutput = document.createElement("div");
