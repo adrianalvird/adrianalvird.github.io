@@ -298,9 +298,13 @@ document.addEventListener("DOMContentLoaded", function () {
       outputElement.appendChild(cdOutput);
       return;
     }
-
-
-
+    if (command === "copyrights") {
+      const realnameOutput = document.createElement("div");
+      realnameOutput.classList.add("command-output");
+      realnameOutput.textContent = "No one have permission to use change or modify this web application , this website is copyright reserved by AKA adrianalvird ";
+      outputElement.appendChild(realnameOutput);
+      return;
+    }
     if (command === "realname") {
       const realnameOutput = document.createElement("div");
       realnameOutput.classList.add("command-output");
