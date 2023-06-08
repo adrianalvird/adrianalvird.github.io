@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (command === "hobby") {
       const whoamiOutput = document.createElement("div");
       whoamiOutput.classList.add("command-output");
-      whoamiOutput.textContent = "I wanna be a Cyber Security Experts and wanted to protect other and Organizations from Cyber Attacks ";
+      whoamiOutput.textContent = "Wanna protect you and others Organizations from Cyber Attacks ";
       outputElement.appendChild(whoamiOutput);
       return;
     }else if (command === "skills") {
@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }else if (command === "education") {
       const whoamiOutput = document.createElement("div");
       whoamiOutput.classList.add("command-output");
-      whoamiOutput.textContent = "I Graduate from Memari College under University of Burdwan on B.Sc Computer Science Hons ..  ";
+      whoamiOutput.textContent = "I Graduated from Memari College under University of Burdwan on B.Sc Computer Science Hons  on 2021..  ";
       outputElement.appendChild(whoamiOutput);
       return;
     } else if (command === "objective") {
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }else if (command === "tools") {
       const whoamiOutput = document.createElement("div");
       whoamiOutput.classList.add("command-output");
-      whoamiOutput.textContent = "As a Bug Hunter I use many tools in Daily Basis , there are some tools I Like Burp Suite , Nmap , Nessus , Wireshark , Metasploit , Maltego , BeeF , OpenVAS, Crunch , JohnTheRipper , Medusa , Masscan , Amass, Nikto , NetCat, Splunk, QRader , Snort , also familiarize many github based tools . ";
+      whoamiOutput.textContent = "As a Bug Hunter I use many tools in Daily Basis and every day I explore many tools, there are some tools I Like Burp Suite , Nmap , Nessus , Wireshark , Metasploit , Maltego , BeeF , OpenVAS, Crunch , JohnTheRipper , Medusa , Masscan , Amass, Nikto , NetCat, Splunk, QRader , Snort , also familiarize many github based tools . ";
       outputElement.appendChild(whoamiOutput);
       return;
     }else if (command === "certificate") {
@@ -218,8 +218,15 @@ document.addEventListener("DOMContentLoaded", function () {
     if (command === "help") {
       const helpOutput = document.createElement("div");
       helpOutput.classList.add("command-output");
-      helpOutput.textContent = "Use 'command' to see available command ..Note that, this is not actual terminal.  but I tried to make exact like linux terminal , so you can use linux command here .. this made by javascript , if you think since you've control this terminal you can do anything , don't waste your time , but it has injection vulnerability , if you have enough time you can test it further ... ";
+      helpOutput.textContent = "Use 'command' to see available command ..Note that, this is not actual terminal.  but I tried to make exact like linux terminal , so you can use linux command here .. if you think since you've control this terminal you can do anything , don't waste your time here ... ";
       outputElement.appendChild(helpOutput);
+      return;
+    }
+    if (command === "vulnerability") {
+      const ageOutput = document.createElement("div");
+      ageOutput.classList.add("command-output");
+      ageOutput.textContent = "This Terminal made by Javascript , and there is a injection vulnerability as well , you can test you further ... but this will not give you control over the application .. ";
+      outputElement.appendChild(ageOutput);
       return;
     }
     if (command === "man") {
@@ -304,13 +311,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (command === "about") {
       const aboutOutput = document.createElement("div");
       aboutOutput.classList.add("command-output");
-      aboutOutput.textContent = "Hello, My name is Subhadeep Pramanik, and I graduated under Memari College from University of Burdwan . I am a student ,  Django Developer , CyberSecurity Enthusiast and Bug Bounty Hunter . I love to find vulnerabilities on systems , I learned security testing from OSCP , AWAE, AWE, CTP, PEN-300, WiFu, eCPPTv2, eCPTX, eWPT,  SANS SEC' 201, 542, 552, 560, 573, 588,642, 660, 760' and also from many resources . ";
+      aboutOutput.textContent = "Hello, My name is Subhadeep Pramanik, and I graduated under Memari College from University of Burdwan . I am a student ,  Django Developer , CyberSecurity Enthusiast and Bug Bounty Hunter . I love to find vulnerabilities on systems , I learned security testing from OSCP , AWAE, AWE, CTP, PEN-300, WiFu, eCPPTv2, eCPTX, eWPT,  SANS SEC201, SEC542, SEC552, SEC560, SEC573, SEC588, SEC642, SEC660, SEC760' and also from many resources . ";
       outputElement.appendChild(aboutOutput);
       return;
     }else if (command === "about me") {
       const aboutOutput = document.createElement("div");
       aboutOutput.classList.add("command-output");
-      aboutOutput.textContent = "Hello, My name is Subhadeep Pramanik, and I graduated under Memari College from University of Burdwan . I am a student ,  Django Developer , CyberSecurity Enthusiast and Bug Bounty Hunter . I love to find vulnerabilities on systems , I learned security testing from OSCP , AWAE, AWE, CTP, PEN-300, WiFu, eCPPTv2, eCPTX, eWPT,  SANS SEC' 201, 542, 552, 560, 573, 588,642, 660, 760' and also from many resources .";
+      aboutOutput.textContent = "Hello, My name is Subhadeep Pramanik, and I graduated under Memari College from University of Burdwan . I am a student ,  Django Developer , CyberSecurity Enthusiast and Bug Bounty Hunter . I love to find vulnerabilities on systems , I learned security testing from OSCP , AWAE, AWE, CTP, PEN-300, WiFu, eCPPTv2, eCPTX, eWPT,  SANS SEC' 201, 542, 552, 560, 573, 588,642, 660, 760' and also from many resources . I completed more than 120+ labs including TryHackMe , HackTheBox , Offensive Security , Portswiggers , and I'm still on top of 1 Percent at Tryhackme , ";
       outputElement.appendChild(aboutOutput);
       return;
       }
