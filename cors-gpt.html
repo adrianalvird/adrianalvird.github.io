@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS by ChatGPT</title>
+</head>
+<body>
+    <h1>CORS Test Page</h1>
+    
+    <button id="corsTestButton">Test CORS Request</button>
+    
+    <div id="corsTestResult">
+        Result will be displayed here.
+    </div>
+
+    <script>
+        const testButton = document.getElementById('corsTestButton');
+        const resultDiv = document.getElementById('corsTestResult');
+
+        testButton.addEventListener('click', () => {
+            // Replace 'https://example.com' with the target URL you want to test.
+            const targetURL = 'https://example.com';
+
+            // You can adjust the request method and headers as needed.
+            fetch(targetURL, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.text())
+            .then(data => {
+                resultDiv.innerHTML = 'CORS request successful. Response data: ' + data;
+            })
+            .catch(error => {
+                resultDiv.innerHTML = 'CORS request failed. Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
+
