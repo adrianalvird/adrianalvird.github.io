@@ -1,0 +1,35 @@
+recon >> 
+
+
+certificate >>>> 
+https://crt.sh/
+https://search.censys.io/
+https://developers.facebook.com/tools/ct/
+
+search engine >>
+
+https://www.shodan.io/dashboard
+https://www.shodan.io/search/facet
+https://hunter.how/list?searchValue=web.body%3D%22%2Fwp-content%2Fplugins%2Fum-user-locations%2F%22
+https://www.reversewhois.io/
+https://bgp.he.net/
+https://securitytrails.com/
+https://dorks.faisalahmed.me/#
+https://dehashed.com/
+https://dorkking.blindf.com/
+https://urlscan.io/search/#*
+https://hunter.how/list?searchValue=
+https://dnsdumpster.com/
+https://github.com/search?type=code
+
+
+subdomain >>>>
+
+https://chaos.projectdiscovery.io/#/
+https://www.virustotal.com/gui/domain/gopro.com/relations
+https://shrewdeye.app/search/
+https://rapiddns.io/subdomain/snapchat.com#result
+
+JWT  >>>>
+jwt.io
+
