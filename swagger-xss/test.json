@@ -1,9 +1,17 @@
 {
-    "url": "https://adrianalvird.github.io/lol/swagger-xss/test.yaml",
+    "url": "https://adrianalvird.github.io/swagger-xss/test.yaml",
     "urls": [
         {
             "url": "https://adrianalvird.github.io/swagger-xss/test.yaml",
             "name": "Foo"
+        },
+        {
+            "url": "https://adrianalvird.github.io/swagger-xss/test2.yaml",
+            "name": "Bar"
+        },
+        {
+            "url": "https://adrianalvird.github.io/swagger-xss/script.js",
+            "name": "Baz"
         }
     ]
 }
