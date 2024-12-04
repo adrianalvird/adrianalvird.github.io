@@ -1,0 +1,9 @@
+{
+    "url": "https://adrianalvird.github.io/lol/swagger-xss/test.yaml",
+    "urls": [
+        {
+            "url": "https://adrianalvird.github.io/swagger-xss/test.yaml",
+            "name": "Foo"
+        }
+    ]
+}
