@@ -1,1 +1,179 @@
-fff
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotSecure.in | Advanced Cybersecurity Protection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+</head>
+<body>
+    <div class="home-container">
+        <!-- Hero Section -->
+        <section class="home-hero">
+            <div class="home-hero-content">
+                <div class="home-hero-text">
+                    <h1 class="home-hero-title">Find Vulnerabilities <span class="home-highlight">Before Hackers Do</span></h1>
+                    <p class="home-hero-description">Join thousands of companies securing their digital assets with our elite cybersecurity platform.</p>
+                </div>
+                <div class="home-cta-group">
+                    <a href="{% url 'service' %}" class="home-cta-primary">Get Protected Now</a>
+                    <a href="#how-it-works" class="home-cta-secondary">See How It Works →</a>
+                </div>
+                <div class="home-stats-grid">
+                    <div class="home-stat-item">
+                        <div class="home-stat-number" data-count="25000">0</div>
+                        <div class="home-stat-label">Vulnerabilities Found</div>
+                    </div>
+                    <div class="home-stat-item">
+                        <div class="home-stat-number" data-count="98">0</div>
+                        <div class="home-stat-label">Success Rate</div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-hero-animation">
+                <lottie-player 
+                    id="security-animation"
+                    src="https://assets6.lottiefiles.com/packages/lf20_jcikwtux.json" 
+                    background="transparent"
+                    speed="1"
+                    style="width: 100%; height: 100%"
+                    loop
+                    autoplay>
+                </lottie-player>
+            </div>
+        </section>
+
+        <!-- Security Features Section -->
+        <section class="home-features">
+            <div class="home-features-container">
+                <h2 class="home-section-title">Our Security Platform</h2>
+                <div class="home-features-grid">
+                    <div class="home-feature-card">
+                        <div class="home-feature-icon">
+                            <lottie-player
+                                src="https://assets1.lottiefiles.com/packages/lf20_6wutsrox.json"
+                                background="transparent"
+                                speed="1"
+                                style="width: 80px; height: 80px"
+                                loop
+                                autoplay>
+                            </lottie-player>
+                        </div>
+                        <h3>Continuous Scanning</h3>
+                        <p>24/7 monitoring for new vulnerabilities across your entire attack surface</p>
+                    </div>
+                    <div class="home-feature-card">
+                        <div class="home-feature-icon">
+                            <lottie-player
+                                src="https://assets1.lottiefiles.com/packages/lf20_gn0tojcq.json"
+                                background="transparent"
+                                speed="1"
+                                style="width: 80px; height: 80px"
+                                loop
+                                autoplay>
+                            </lottie-player>
+                        </div>
+                        <h3>Crowdsourced Testing</h3>
+                        <p>Global network of security researchers working to protect your assets</p>
+                    </div>
+                    <div class="home-feature-card">
+                        <div class="home-feature-icon">
+                            <lottie-player
+                                src="https://assets1.lottiefiles.com/packages/lf20_osdxlbqq.json"
+                                background="transparent"
+                                speed="1"
+                                style="width: 80px; height: 80px"
+                                loop
+                                autoplay>
+                            </lottie-player>
+                        </div>
+                        <h3>Real-Time Protection</h3>
+                        <p>Instant alerts and automated responses to emerging threats</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-attacks">
+            <div class="home-attacks-container">
+                <h2 class="home-section-title">Recent Cyber Attacks</h2>
+                <p class="home-section-subtitle">Don't be the next victim</p>
+                
+                <div class="home-attacks-track">
+                    <div class="home-scroller">
+                        <div class="home-attack-card">
+                            <div class="home-attack-header">
+                                <span class="home-attack-alert">🔴 Critical</span>
+                                <span class="home-attack-date">May 2024</span>
+                            </div>
+                            <h3>TechCorp Data Breach</h3>
+                            <p>43 million user records exposed through cloud misconfiguration</p>
+                            <div class="home-attack-stats">
+                                <span class="home-stat-bubble">$28M Loss</span>
+                                <span class="home-stat-bubble">3.2M Users</span>
+                            </div>
+                        </div>
+                        <div class="home-attack-card">
+                            <div class="home-attack-header">
+                                <span class="home-attack-alert">🟠 Severe</span>
+                                <span class="home-attack-date">Apr 2024</span>
+                            </div>
+                            <h3>Global Retail Ransomware</h3>
+                            <p>3-week system outage after payment infrastructure attack</p>
+                            <div class="home-attack-stats">
+                                <span class="home-stat-bubble">$16M Loss</span>
+                                <span class="home-stat-bubble">78 Stores</span>
+                            </div>
+                        </div>
+                        <div class="home-attack-card">
+                            <div class="home-attack-header">
+                                <span class="home-attack-alert">🔴 Critical</span>
+                                <span class="home-attack-date">Mar 2024</span>
+                            </div>
+                            <h3>FinServe Phishing</h3>
+                            <p>Employee credentials stolen leading to $9.5M fraud</p>
+                            <div class="home-attack-stats">
+                                <span class="home-stat-bubble">$9.5M Loss</span>
+                                <span class="home-stat-bubble">22 Days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-partners">
+            <div class="home-partners-container">
+                <h2 class="home-section-title">Trusted By Leading Organizations</h2>
+                <div class="home-partners-track">
+                    <div class="home-scroller">
+                        <div class="home-partner-logo"><img src="https://via.placeholder.com/150x60?text=Company+1" alt="Company 1"></div>
+                        <div class="home-partner-logo"><img src="https://via.placeholder.com/150x60?text=Company+2" alt="Company 2"></div>
+                        <div class="home-partner-logo"><img src="https://via.placeholder.com/150x60?text=Company+3" alt="Company 3"></div>
+                        <div class="home-partner-logo"><img src="https://via.placeholder.com/150x60?text=Company+4" alt="Company 4"></div>
+                        <div class="home-partner-logo"><img src="https://via.placeholder.com/150x60?text=Company+5" alt="Company 5"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="home-cta">
+            <div class="home-cta-container">
+                <h2>Ready to Secure Your Business?</h2>
+                <p>Get started with our enterprise-grade security platform today</p>
+                <a href="{% url 'contact' %}" class="home-cta-primary">Request Demo</a>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>
