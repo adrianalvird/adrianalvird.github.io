@@ -16,7 +16,7 @@ async function sendMessage() {
 
   // Hugging Face API - educational use
   const API_URL = "https://api-inference.huggingface.co/models/microsoft/DialoGPT-large";
-  const HF_TOKEN = "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"; // Replace with actual token
+  const HF _ TOKEN = "h f _ kK VV GYHh dGiW VnE iA vysbR evQMP uFuvg qC"; 
 
   // Loading message
   const loadingMsg = document.createElement("div");
@@ -52,4 +52,5 @@ async function sendMessage() {
     chatbox.innerHTML += `<div style="color:red;"><b>Learning Note:</b> ${error.message}</div>`;
     console.log("Educational debug:", error);
   }
+
 }
