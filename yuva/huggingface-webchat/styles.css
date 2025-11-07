@@ -1,0 +1,118 @@
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+.container {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+h2 { 
+  text-align: center; 
+  color: #333;
+  margin-bottom: 10px;
+}
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+#chatbox { 
+  border: 2px solid #e1e5e9; 
+  background: #f8f9fa; 
+  padding: 20px; 
+  height: 450px; 
+  overflow-y: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.user-msg { 
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white; 
+  padding: 12px 16px; 
+  border-radius: 18px 18px 5px 18px; 
+  margin: 12px 0;
+  max-width: 75%;
+  margin-left: auto;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+}
+.bot-msg { 
+  background: white; 
+  color: #333; 
+  padding: 12px 16px; 
+  border-radius: 18px 18px 18px 5px; 
+  margin: 12px 0;
+  max-width: 75%;
+  border: 1px solid #e1e5e9;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.typing { 
+  color: #666; 
+  font-style: italic; 
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-radius: 18px;
+  margin: 12px 0;
+  max-width: 75%;
+}
+.error-msg { 
+  background: #fff5f5; 
+  color: #dc3545; 
+  padding: 12px 16px; 
+  border-radius: 18px; 
+  margin: 12px 0;
+  max-width: 75%;
+  border: 1px solid #f5c6cb;
+}
+.input-area {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+input { 
+  flex: 1; 
+  padding: 14px 16px; 
+  border: 2px solid #e1e5e9;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+}
+button { 
+  padding: 14px 28px; 
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(40,167,69,0.3);
+}
+button:hover { 
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(40,167,69,0.4);
+}
+button:disabled { 
+  background: #6c757d; 
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.status {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+  font-size: 14px;
+}
