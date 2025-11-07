@@ -3,20 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Chatbot (Hugging Face)</title>
-  <style>
-    body { font-family: Arial; background: #f7f7f7; padding: 20px; }
-    #chatbox { border: 1px solid #ccc; background: white; padding: 10px; height: 300px; overflow-y: auto; }
-    input { width: 80%; padding: 8px; margin-top: 10px; }
-    button { padding: 8px 12px; }
-  </style>
+  <title>AI Chatbot with Hugging Face</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2> AI Chatbot (Hugging Face)</h2>
-  <div id="chatbox"></div>
-  <input type="text" id="userInput" placeholder="Type a message...">
-  <button onclick="sendMessage()">Send</button>
+  <div class="container">
+    <h2> AI Chatbot</h2>
+    <div class="subtitle">Powered by Hugging Face API</div>
+    
+    <div id="chatbox">
+      <div class="bot-msg">
+        <strong>Bot:</strong> Hello! I'm your AI assistant powered by Hugging Face. How can I help you today?
+      </div>
+    </div>
+    
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message here..." autocomplete="off">
+      <button onclick="sendMessage()" id="sendBtn">Send</button>
+    </div>
+    
+    <div class="status" id="status">Ready to chat</div>
+  </div>
 
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
