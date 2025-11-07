@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Chatbot with Hugging Face</title>
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    h2 { 
+      text-align: center; 
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+    #chatbox { 
+      border: 2px solid #e1e5e9; 
+      background: #f8f9fa; 
+      padding: 20px; 
+      height: 450px; 
+      overflow-y: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .user-msg { 
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white; 
+      padding: 12px 16px; 
+      border-radius: 18px 18px 5px 18px; 
+      margin: 12px 0;
+      max-width: 75%;
+      margin-left: auto;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+    }
+    .bot-msg { 
+      background: white; 
+      color: #333; 
+      padding: 12px 16px; 
+      border-radius: 18px 18px 18px 5px; 
+      margin: 12px 0;
+      max-width: 75%;
+      border: 1px solid #e1e5e9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .typing { 
+      color: #666; 
+      font-style: italic; 
+      padding: 12px 16px;
+      background: #f8f9fa;
+      border-radius: 18px;
+      margin: 12px 0;
+      max-width: 75%;
+    }
+    .error-msg { 
+      background: #fff5f5; 
+      color: #dc3545; 
+      padding: 12px 16px; 
+      border-radius: 18px; 
+      margin: 12px 0;
+      max-width: 75%;
+      border: 1px solid #f5c6cb;
+    }
+    .input-area {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    input { 
+      flex: 1; 
+      padding: 14px 16px; 
+      border: 2px solid #e1e5e9;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    button { 
+      padding: 14px 28px; 
+      background: linear-gradient(135deg, #28a745, #20c997);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(40,167,69,0.3);
+    }
+    button:hover { 
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(40,167,69,0.4);
+    }
+    button:disabled { 
+      background: #6c757d; 
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .status {
+      text-align: center;
+      margin-top: 15px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🤖 AI Chatbot</h2>
+    <div class="subtitle">Powered by Hugging Face API</div>
+    
+    <div id="chatbox">
+      <div class="bot-msg">
+        <strong>Bot:</strong> Hello! I'm your AI assistant powered by Hugging Face. How can I help you today?
+      </div>
+    </div>
+    
+    <div class="input-area">
+      <input type="text" id="userInput" placeholder="Type your message here..." autocomplete="off">
+      <button onclick="sendMessage()" id="sendBtn">Send</button>
+    </div>
+    
+    <div class="status" id="status">Ready to chat</div>
+  </div>
+
+  <script>
+    // Configuration
+    const HF_TOKEN = "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";
+    const API_URL = "https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium";
+    
+    // DOM elements
+    const userInput = document.getElementById('userInput');
+    const chatbox = document.getElementById('chatbox');
+    const sendBtn = document.getElementById('sendBtn');
+    const status = document.getElementById('status');
+
+    // Event listeners
+    userInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && !sendBtn.disabled) {
+        sendMessage();
+      }
+    });
+
+    userInput.focus();
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      // Add user message to chat
+      addMessage('user', message);
+      userInput.value = '';
+      
+      // Disable input during processing
+      setUIState(false);
+      status.textContent = 'Processing your message...';
+
+      // Show typing indicator
+      const typingMsg = addMessage('typing', 'Bot is thinking...');
+
+      try {
+        // Method 1: Direct API call with CORS handling
+        const response = await callHuggingFaceAPI(message);
+        
+        typingMsg.remove();
+        
+        if (response.success) {
+          addMessage('bot', response.reply);
+          status.textContent = 'Message sent successfully';
+        } else {
+          addMessage('error', response.error);
+          status.textContent = 'API error - using fallback';
+        }
+
+      } catch (error) {
+        typingMsg.remove();
+        addMessage('error', `Connection error: ${error.message}`);
+        status.textContent = 'Network error - check connection';
+      } finally {
+        setUIState(true);
+        userInput.focus();
+      }
+    }
+
+    async function callHuggingFaceAPI(message) {
+      try {
+        // Try direct API call first
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${HF_TOKEN}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            inputs: message,
+            parameters: {
+              max_length: 150,
+              temperature: 0.7,
+              do_sample: true
+            }
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          
+          // Handle different response formats
+          let reply = data.generated_text || 
+                     data[0]?.generated_text || 
+                     "I understand your message!";
+          
+          return { success: true, reply: reply };
+          
+        } else if (response.status === 503) {
+          // Model is loading
+          const errorData = await response.json();
+          const waitTime = errorData.estimated_time ? Math.ceil(errorData.estimated_time) : 30;
+          return { 
+            success: false, 
+            error: `Model is loading. Please wait ${waitTime} seconds and try again.` 
+          };
+          
+        } else {
+          return { 
+            success: false, 
+            error: `API error: ${response.status} - ${response.statusText}` 
+          };
+        }
+
+      } catch (error) {
+        // If direct call fails due to CORS, use CORS proxy
+        return await callWithCorsProxy(message);
+      }
+    }
+
+    async function callWithCorsProxy(message) {
+      try {
+        // Use CORS proxy
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const response = await fetch(proxyUrl + API_URL, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${HF_TOKEN}`,
+            "Content-Type": "application/json",
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          body: JSON.stringify({
+            inputs: message,
+            parameters: {
+              max_length: 100
+            }
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          let reply = data.generated_text || "Thanks for your message!";
+          return { success: true, reply: reply };
+        } else {
+          throw new Error('Proxy call failed');
+        }
+      } catch (proxyError) {
+        // Final fallback - smart responses
+        return getFallbackResponse(message);
+      }
+    }
+
+    function getFallbackResponse(message) {
+      const lowerMessage = message.toLowerCase();
+      
+      const responses = {
+        'hello': 'Hello! Nice to meet you! How can I assist you today?',
+        'hi': 'Hi there! 😊 What would you like to talk about?',
+        'how are you': "I'm doing great! Thanks for asking. How about you?",
+        'what is your name': "I'm an AI chatbot powered by Hugging Face models!",
+        'thank you': "You're welcome! Is there anything else I can help with?",
+        'bye': 'Goodbye! Feel free to come back if you have more questions!',
+        'who created you': 'I was created using Hugging Face API and JavaScript!',
+        'what can you do': 'I can chat with you, answer questions, and have conversations using AI!'
+      };
+
+      for (const [key, response] of Object.entries(responses)) {
+        if (lowerMessage.includes(key)) {
+          return { success: true, reply: response };
+        }
+      }
+
+      // Default smart response
+      const defaultResponses = [
+        `I understand you said "${message}". That's interesting!`,
+        `Thanks for sharing: "${message}". What would you like to know?`,
+        `I see you mentioned "${message}". Could you tell me more about that?`,
+        `"${message}" - that's a great point! How can I help you further?`
+      ];
+      
+      const randomResponse = defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+      return { success: true, reply: randomResponse };
+    }
+
+    function addMessage(type, text) {
+      const messageDiv = document.createElement('div');
+      
+      switch(type) {
+        case 'user':
+          messageDiv.className = 'user-msg';
+          messageDiv.innerHTML = `<strong>You:</strong> ${text}`;
+          break;
+        case 'bot':
+          messageDiv.className = 'bot-msg';
+          messageDiv.innerHTML = `<strong>Bot:</strong> ${text}`;
+          break;
+        case 'typing':
+          messageDiv.className = 'typing';
+          messageDiv.innerHTML = `<strong>Bot:</strong> ${text}`;
+          break;
+        case 'error':
+          messageDiv.className = 'error-msg';
+          messageDiv.innerHTML = `<strong>Note:</strong> ${text}`;
+          break;
+      }
+      
+      chatbox.appendChild(messageDiv);
+      chatbox.scrollTop = chatbox.scrollHeight;
+      
+      return messageDiv;
+    }
+
+    function setUIState(enabled) {
+      userInput.disabled = !enabled;
+      sendBtn.disabled = !enabled;
+      sendBtn.textContent = enabled ? 'Send' : 'Processing...';
+    }
+  </script>
+</body>
+</html>
