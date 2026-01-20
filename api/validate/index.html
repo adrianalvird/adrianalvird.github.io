@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>API Key Validator</title>
-  <meta charset="utf-8">
-  <style>
-    body { font-family: Arial; background:#111; color:#0f0; text-align:center; padding-top:60px;}
-    .box { background:#000; padding:30px; border-radius:10px; display:inline-block;}
-  </style>
+<meta charset="UTF-8">
+<title>API Validator</title>
 </head>
 <body>
-  <div class="box">
-    <h2>API Key Validation</h2>
-    <p id="result">Checking...</p>
-  </div>
 
 <script>
-  const validKeys = [
-    "myhiudhds54bsdf541bf",
-    "test123456",
-    "demoapikey999"
-  ];
+const validKeys = [
+  "myhiudhds54bsdf541bf",
+  "test123456",
+  "demoapikey999"
+];
 
-  const params = new URLSearchParams(window.location.search);
-  const apiKey = params.get("api_key");
+const params = new URLSearchParams(window.location.search);
+const apiKey = params.get("api_key");
 
-  const result = document.getElementById("result");
+let response = {};
 
-  if (!apiKey) {
-    result.innerHTML = "❌ No API Key Provided";
-  } 
-  else if (validKeys.includes(apiKey)) {
-    result.innerHTML = "✅ API Key Valid";
-  } 
-  else {
-    result.innerHTML = "❌ Invalid API Key";
-  }
+if (!apiKey) {
+  response = {
+    valid: false,
+    status: "error",
+    message: "No API key provided"
+  };
+} 
+else if (validKeys.includes(apiKey)) {
+  response = {
+    api_key: apiKey,
+    valid: true,
+    status: "success"
+  };
+} 
+else {
+  response = {
+    api_key: apiKey,
+    valid: false,
+    status: "invalid"
+  };
+}
+
+document.body.innerText = JSON.stringify(response, null, 2);
 </script>
 
 </body>
