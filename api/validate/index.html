@@ -2,37 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>API Validator</title>
+<title>API</title>
 </head>
 <body>
+<pre id="json"></pre>
 
 <script>
-const validKeys = [
-  "myhiudhds54bsdf541bf",
-  "test123456",
-  "demoapikey999"
-];
-
 const params = new URLSearchParams(window.location.search);
 const apiKey = params.get("api_key");
 
-let response = {};
+let response;
 
-if (!apiKey) {
-  response = {
-    valid: false,
-    status: "error",
-    message: "No API key provided"
-  };
-} 
-else if (validKeys.includes(apiKey)) {
+if(apiKey === "myhiudhds54bsdf541bf"){
   response = {
     api_key: apiKey,
     valid: true,
     status: "success"
   };
-} 
-else {
+}else{
   response = {
     api_key: apiKey,
     valid: false,
@@ -40,7 +27,7 @@ else {
   };
 }
 
-document.body.innerText = JSON.stringify(response, null, 2);
+document.getElementById("json").textContent = JSON.stringify(response, null, 2);
 </script>
 
 </body>
