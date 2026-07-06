@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vulnerable Page for Blind XSS Test</title>
+    <!-- Disable browser XSS auditor for testing -->
+    <meta http-equiv="X-XSS-Protection" content="0">
+</head>
+<body>
+    <h1>Search Page (Vulnerable)</h1>
+    <form method="GET" action="">
+        <input type="text" name="q" placeholder="Enter something...">
+        <button type="submit">Search</button>
+    </form>
+    <hr>
+    <div id="result">
+        <!-- Unsanitized reflection of query parameter -->
+        <script>
+            // Get query parameter 'q' from URL
+            var params = new URLSearchParams(location.search);
+            var q = params.get('q') || '';
+            // Directly write into DOM without sanitization
+            document.write('<p>You searched for: ' + q + '</p>');
+        </script>
+    </div>
+</body>
+</html>
